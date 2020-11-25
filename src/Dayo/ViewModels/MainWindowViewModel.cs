@@ -40,7 +40,6 @@ namespace Dayo
                 }
             }
         }
-
         public int CaretIndex { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
