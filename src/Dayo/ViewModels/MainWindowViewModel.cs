@@ -80,7 +80,7 @@ namespace Dayo
                 return commandClose ?? (commandClose = new RelayCommand(
                     x =>
                     {
-                        store.StoreMemoryList(this.Content);
+                        store.StoreMemoryList(note);
                         System.Windows.Application.Current.Shutdown();
                     }));
             }

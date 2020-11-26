@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Dayo
 {
-    class Note
+    public class Note
     {
         public string Title { get; set; }
         public string Content { get; set; }

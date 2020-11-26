@@ -9,19 +9,19 @@ namespace Dayo
     public class Store
     {
         private const string StorageName = "DayoStore.txt";
-        public void StoreMemoryList(string content)
+        public void StoreMemoryList(Note note)
         {
-            System.IO.File.WriteAllText(StorageName, content);
+            System.IO.File.WriteAllText(StorageName, note.Content);
         }
 
-        public string ReadMemoryList()
+        public Note ReadMemoryList()
         {
             if (System.IO.File.Exists(StorageName))
             {
-                return System.IO.File.ReadAllText(StorageName);
+                return new Note() { Content = System.IO.File.ReadAllText(StorageName) };
             }
 
-            return string.Empty;
+            return new Note();
         }
     }
 }

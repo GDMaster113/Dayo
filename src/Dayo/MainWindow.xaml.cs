@@ -33,7 +33,9 @@ namespace Dayo
             this.store = store;
             DataContext = this.mwViewModel;
             
-            mwViewModel.Content = store.ReadMemoryList();
+            Note note = store.ReadMemoryList();
+
+            mwViewModel.Content = note.Content;
 
             dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
             dispatcherTimer.Tick += dispatcherTimer_Tick;
@@ -44,7 +46,7 @@ namespace Dayo
         }
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            store.StoreMemoryList(mwViewModel.Content);
+            store.StoreMemoryList(new Note() { Content = mwViewModel.Content });
         }
 
         private void MemoryList_MouseDown(object sender, MouseButtonEventArgs e)
