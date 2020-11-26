@@ -9,8 +9,8 @@ namespace Dayo
 {
     public class MainWindowViewModel : INotifyPropertyChanged 
     {
-        private readonly Store store;
-        public MainWindowViewModel(Store store)
+        private readonly IStore store;
+        public MainWindowViewModel(IStore store)
         {
             this.store = store;
             note = new Note();

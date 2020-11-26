@@ -18,7 +18,7 @@ namespace Dayo
         {
             Container container = new Container();
 
-            container.Register<Store>(Lifestyle.Singleton);
+            container.Register<IStore,RawFileStore>(Lifestyle.Singleton);
             container.Register<MainWindowViewModel>();
             container.Register<MainWindow>();
 

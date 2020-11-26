@@ -23,10 +23,10 @@ namespace Dayo
     partial class MainWindow : Window
     {
         private readonly MainWindowViewModel mwViewModel;
-        private readonly Store store;
+        private readonly IStore store;
         System.Windows.Threading.DispatcherTimer dispatcherTimer;
 
-        public MainWindow(MainWindowViewModel mwViewModel, Store store)
+        public MainWindow(MainWindowViewModel mwViewModel, IStore store)
         {
             InitializeComponent();
             this.mwViewModel = mwViewModel;

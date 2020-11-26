@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dayo
 {
-    public class Store
+    public class RawFileStore : IStore
     {
         private const string StorageName = "DayoStore.txt";
         public void StoreMemoryList(Note note)
