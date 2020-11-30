@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Dayo.Utils;
 using SimpleInjector;
 
 namespace Dayo
@@ -19,6 +20,7 @@ namespace Dayo
             Container container = new Container();
 
             container.Register<IStore, NoteStorage>(Lifestyle.Singleton);
+            container.Register<IFileAccess, FileWrapper>(Lifestyle.Singleton);
             container.Register<MainWindowViewModel>();
             container.Register<MainWindow>();
 
