@@ -1,5 +1,7 @@
+# Dayo
+
 Dayo is an app to help organise your day
 
-Resource attribution
+## Resource attribution
 
-Icons made by Google.
+Icons made by [Google](https://material.io/).
