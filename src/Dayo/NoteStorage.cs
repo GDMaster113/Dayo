@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Dayo
 {
-    class NoteStorage : IStore
+    public class NoteStorage : IStore
     {
         private const string StorageName = "NewDayoStore.txt";
 
