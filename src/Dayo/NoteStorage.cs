@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dayo.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,11 +11,18 @@ namespace Dayo
     {
         private const string StorageName = "NewDayoStore.txt";
 
+        private readonly IFileAccess fileAccess;
+
+        public NoteStorage(IFileAccess fileAccess)
+        {
+            this.fileAccess = fileAccess;
+        }
+
         public Note ReadMemoryList()
         {
-            if(System.IO.File.Exists(StorageName))
+            if(fileAccess.Exists(StorageName))
             {
-                string[] noteLines = System.IO.File.ReadAllLines(StorageName);
+                string[] noteLines = fileAccess.ReadAllLines(StorageName);
                 string title = noteLines[0];
                 StringBuilder builder = new StringBuilder();
                 for (int i = 1; i < noteLines.Length -1; i++)
@@ -31,7 +39,7 @@ namespace Dayo
 
         public void StoreMemoryList(Note note)
         {
-            System.IO.File.WriteAllLines(StorageName, new List<string>() { note.Title, note.Content });
+            fileAccess.WriteAllLines(StorageName, new List<string>() { note.Title, note.Content });
         }
     }
 }

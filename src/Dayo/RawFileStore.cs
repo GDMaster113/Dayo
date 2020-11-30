@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dayo.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,17 +9,25 @@ namespace Dayo
 {
     public class RawFileStore : IStore
     {
+        private readonly IFileAccess fileAccess;
+
+        public RawFileStore(IFileAccess fileAccess)
+        {
+            this.fileAccess = fileAccess;
+        }
+
+
         private const string StorageName = "DayoStore.txt";
         public void StoreMemoryList(Note note)
         {
-            System.IO.File.WriteAllText(StorageName, note.Content);
+            fileAccess.WriteAllText(StorageName, note.Content);
         }
 
         public Note ReadMemoryList()
         {
-            if (System.IO.File.Exists(StorageName))
+            if (fileAccess.Exists(StorageName))
             {
-                return new Note() { Content = System.IO.File.ReadAllText(StorageName) };
+                return new Note() { Content = fileAccess.ReadAllText(StorageName) };
             }
 
             return new Note();
